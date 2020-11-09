@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html ⚡ lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<script async src="https://cdn.ampproject.org/v0.js"></script>
+		<title>Vshred</title>
+		<link rel="canonical" href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
+		<meta name="description" content="A Vshred Product Page" />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;800&display=swap" rel="stylesheet" />
+		<script type="application/ld+json">
+			{
+				"@context": "http://schema.org",
+				"@type": "NewsArticle",
+				"headline": "Open-source framework for publishing content",
+				"datePublished": "2015-10-07T12:02:41Z",
+				"image": ["logo.jpg"]
+			}
+		</script>
+		<style amp-boilerplate>
+			body {
+				-webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+				-moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+				-ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+				animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+			}
+			@-webkit-keyframes -amp-start {
+				from {
+					visibility: hidden;
+				}
+				to {
+					visibility: visible;
+				}
+			}
+			@-moz-keyframes -amp-start {
+				from {
+					visibility: hidden;
+				}
+				to {
+					visibility: visible;
+				}
+			}
+			@-ms-keyframes -amp-start {
+				from {
+					visibility: hidden;
+				}
+				to {
+					visibility: visible;
+				}
+			}
+			@-o-keyframes -amp-start {
+				from {
+					visibility: hidden;
+				}
+				to {
+					visibility: visible;
+				}
+			}
+			@keyframes -amp-start {
+				from {
+					visibility: hidden;
+				}
+				to {
+					visibility: visible;
+				}
+			}
+		</style>
+		<style amp-custom>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Montserrat', sans-serif;
+				background-color: #e5e5e5;
+			}
+
+			h1,
+			h2,
+			h3,
+			button {
+				text-transform: uppercase;
+				font-weight: 800;
+			}
+
+			h1 {
+				margin-bottom: 1.5vh;
+				font-size: 1.95rem;
+				letter-spacing: 0.05rem;
+			}
+
+			h2 {
+				font-size: 4rem;
+			}
+
+			li {
+				margin: 1.5vh 0;
+				font-size: 0.9rem;
+				font-weight: 600;
+				font-style: italic;
+			}
+
+			.header {
+				height: 18vh;
+			}
+
+			.container {
+				max-width: 1100px;
+				margin: auto;
+				overflow: auto;
+				/* padding: 0 2rem; */
+			}
+
+			.card-wrapper {
+				display: grid;
+				grid-template-columns: 6% 94%;
+			}
+
+			.card {
+				display: grid;
+				grid-template-columns: 1.5fr 1fr;
+				background-color: #ffffff;
+				margin-bottom: 2rem;
+				box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			}
+
+			.picker-text {
+				font-size: 0.85rem;
+				font-weight: 800;
+			}
+
+			.picker-text span {
+				font-weight: 500;
+			}
+
+			.swatch {
+				height: 40px;
+				width: 40px;
+				border-radius: 100%;
+				border: none;
+				margin-right: 5px;
+				cursor: pointer;
+			}
+
+			.size-picker {
+				background-color: #f5f5f5;
+				height: 45px;
+				width: 45px;
+				font-family: 'Montserrat', sans-serif;
+				text-align: center;
+				font-weight: 800;
+				margin-right: 10px;
+				margin-top: 1.5vh;
+				margin-bottom: 3vh;
+				border: none;
+				cursor: pointer;
+			}
+
+			.active {
+				border: rgb(0, 0, 0) solid 2px;
+			}
+
+			.ripple {
+				background-color: #d90233;
+				transition: background 0.6s;
+				background-position: center;
+				background-image: radial-gradient(circle, transparent 1%, #db1f4b 1%);
+				background-size: 12000%;
+			}
+
+			.ripple:active {
+				background-color: #bb002cbd;
+				transition: background 0s;
+				background-size: 100%;
+			}
+
+			.amp-carousel-button {
+				background-color: rgba(0, 0, 0, 0);
+			}
+
+			.carousel-slide {
+				background-image: url('./img/leggings.png');
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+			}
+
+			.carousel-caption {
+				font-weight: 300;
+				font-size: 1rem;
+				color: #ffffff;
+				position: absolute;
+				bottom: 1vh;
+				left: 1vh;
+			}
+
+			.content-wrapper {
+				margin: 2vh auto;
+				width: 80%;
+			}
+
+			@media screen and (max-width: 768px) {
+				body {
+					background-color: #ffffff;
+				}
+
+				h2 {
+					font-size: 1.75rem;
+				}
+
+				.header {
+					height: 10vh;
+				}
+
+				.thumbnails {
+					display: none;
+				}
+
+				.card {
+					display: grid;
+					grid-template-columns: 1fr;
+					grid-template-rows: 1fr 2fr;
+					background-color: #ffffff;
+					margin-bottom: 0;
+					box-shadow: none;
+				}
+
+				.card-wrapper {
+					display: block;
+				}
+
+				amp-carousel {
+					width: 90%;
+					margin: 0 4vw;
+				}
+
+				.content-wrapper {
+					margin: 2vh auto;
+					width: 90%;
+				}
+
+				.no-thanks {
+					margin-bottom: 25px;
+				}
+
+				.swatch {
+					height: 35px;
+					width: 35px;
+				}
+
+				h1 {
+					margin-bottom: 1.5vh;
+					font-size: 1.7rem;
+					letter-spacing: 0.05rem;
+				}
+
+				.carousel-caption {
+					font-weight: 300;
+					font-size: 0.75rem;
+					color: #ffffff;
+					position: absolute;
+					bottom: 1vh;
+					left: 1vh;
+				}
+			}
+		</style>
+		<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+		<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+		<noscript
+			><style amp-boilerplate>
+				body {
+					-webkit-animation: none;
+					-moz-animation: none;
+					-ms-animation: none;
+					animation: none;
+				}
+			</style></noscript
+		>
+	</head>
+	<body>
+		<!-- Logo Bar -->
+		<nav style="display: flex; justify-content: center; align-items: center; text-align: center; width: 100%; height: 47px; background-color: #ffffff; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
+			<a href="#">
+				<amp-img src="./img/vshred_logo.svg" width="92" height="19" layout="fixed" alt="Vshred Logo"> </amp-img>
+			</a>
+		</nav>
+		<main class="container">
+			<section class="header" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center">
+				<h2>COMPLETE THE LOOK</h2>
+			</section>
+			<section class="card-wrapper">
+				<div class="thumbnails">
+					<amp-img src="./img/thumbnails.png" width="63" height="193" layout="fixed" alt=""> </amp-img>
+				</div>
+				<section class="card">
+					<amp-carousel controls width="436" height="384" layout="responsive" type="slides">
+						<div class="carousel-slide">
+							<p class="carousel-caption">
+								Flex Sports Bra // Red <br />
+								Essential Leggings // Red
+							</p>
+						</div>
+						<div class="carousel-slide">
+							<p class="carousel-caption">
+								Flex Sports Bra // Red <br />
+								Essential Leggings // Red
+							</p>
+						</div>
+						<div class="carousel-slide">
+							<p class="carousel-caption">
+								Flex Sports Bra // Red <br />
+								Essential Leggings // Red
+							</p>
+						</div>
+						<div class="carousel-slide">
+							<p class="carousel-caption">
+								Flex Sports Bra // Red <br />
+								Essential Leggings // Red
+							</p>
+						</div>
+					</amp-carousel>
+					<div class="content-wrapper">
+						<div style="margin-bottom: 2vh">
+							<h1>Essential Leggings</h1>
+							<p style="color: #d90233; text-decoration: line-through; font-style: italic; font-weight: 500; font-size: 0.9rem">$49.99</p>
+							<h3 style="font-size: 1.5rem">$39.99</h3>
+						</div>
+						<div style="margin-bottom: 3vh">
+							<div style="margin-bottom: 1vh">
+								<amp-state id="colorPicker">
+									<script type="application/json">
+										{
+											"color": "Sage Green",
+											"swatch": "4"
+										}
+									</script>
+								</amp-state>
+								<p class="picker-text">Color: <span [text]="colorPicker.color">Sage Green</span></p>
+							</div>
+							<div style="display: flex">
+								<button [class]="colorPicker.swatch == 1 ? 'active swatch' : 'swatch'" on="tap:AMP.setState({colorPicker: {color: 'Dark Grey', swatch: 1}})" class="swatch" style="background-color: #2d2d2f"></button>
+								<button [class]="colorPicker.swatch == 2 ? 'active swatch' : 'swatch'" on="tap:AMP.setState({colorPicker: {color: 'Navy', swatch: 2}})" class="swatch" style="background-color: #223a5e"></button>
+								<button [class]="colorPicker.swatch == 3 ? 'active swatch' : 'swatch'" on="tap:AMP.setState({colorPicker: {color: 'Red', swatch: 3}})" class="swatch" style="background-color: #b71234"></button>
+								<button [class]="colorPicker.swatch == 4 ? 'active swatch' : 'swatch'" on="tap:AMP.setState({colorPicker: {color: 'Sage Green', swatch: 4}})" class="swatch active" style="background-color: #a7ae9e"></button>
+								<button [class]="colorPicker.swatch == 5 ? 'active swatch' : 'swatch'" on="tap:AMP.setState({colorPicker: {color: 'Pink', swatch: 5}})" class="swatch" style="background-color: #c0aabf"></button>
+								<button [class]="colorPicker.swatch == 6 ? 'active swatch' : 'swatch'" on="tap:AMP.setState({colorPicker: {color: 'Blue Grey', swatch: 6}})" class="swatch" style="background-color: #b0c3d2"></button>
+								<button [class]="colorPicker.swatch == 7 ? 'active swatch' : 'swatch'" on="tap:AMP.setState({colorPicker: {color: 'Light Grey', swatch: 7}})" class="swatch" style="background-color: #666563"></button>
+							</div>
+						</div>
+						<div>
+							<div style="display: flex">
+								<amp-state id="sizePicker">
+									<script type="application/json">
+										{
+											"size": "Medium",
+											"picker": "3"
+										}
+									</script>
+								</amp-state>
+								<p class="picker-text">Size: <span [text]="sizePicker.size">Medium</span></p>
+								<p class="picker-text" style="margin-left: 25%; font-weight: 400; color: #87c9e5; text-decoration: underline; cursor: pointer">Size Guide</p>
+							</div>
+							<div style="display: flex">
+								<button [class]="sizePicker.picker == 1 ? 'active size-picker' : 'size-picker'" on="tap:AMP.setState({sizePicker: {size: 'Extra Small', picker: 1}})" class="size-picker">XS</button>
+								<button [class]="sizePicker.picker == 2 ? 'active size-picker' : 'size-picker'" on="tap:AMP.setState({sizePicker: {size: 'Small', picker: 2}})" class="size-picker">S</button>
+								<button [class]="sizePicker.picker == 3 ? 'active size-picker' : 'size-picker'" on="tap:AMP.setState({sizePicker: {size: 'Medium', picker: 3}})" class="size-picker active">M</button>
+								<button [class]="sizePicker.picker == 4 ? 'active size-picker' : 'size-picker'" on="tap:AMP.setState({sizePicker: {size: 'Large', picker: 4}})" class="size-picker">L</button>
+								<button [class]="sizePicker.picker == 5 ? 'active size-picker' : 'size-picker'" on="tap:AMP.setState({sizePicker: {size: 'Extra Large', picker: 5}})" class="size-picker">XL</button>
+							</div>
+						</div>
+						<div>
+							<ul style="padding-left: 1rem; margin-bottom: 5vh">
+								<li>Body Contouring & Breathable</li>
+								<li>High waisted ribbed waistband</li>
+								<li>Moisture-Wicking</li>
+								<li>Buttery-soft stretchy Fabric</li>
+							</ul>
+						</div>
+						<button class="ripple" style="cursor: pointer; background-color: #d90233; color: #ffffff; font-size: 1.5rem; text-align: center; border: none; width: 100%; height: 58px" type="button">Add to Order</button>
+					</div>
+				</section>
+			</section>
+			<div class="no-thanks" style="text-align: center">
+				<a style="font-weight: normal; font-size: 20px; line-height: 24px; letter-spacing: 0.03em; text-decoration-line: underline; color: #b1b1b1" href="#">No Thanks</a>
+			</div>
+		</main>
+	</body>
+</html>
